@@ -149,13 +149,24 @@ li::before {
 }
 
 .badge {
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
     border: 2px solid #0e155e;
-    background:#fcebc3;
+    background: #fcebc3;
     color: #0e155e;
     border-radius: 20px;
     padding: 4px 10px;
     font-family: 'Fredoka', sans-serif;
     font-weight: bold;
+}
+
+.status p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
 }
 
 /* Images */
