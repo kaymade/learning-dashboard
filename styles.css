@@ -1,0 +1,492 @@
+/* base page styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 16px;
+    background:
+        radial-gradient(circle at top left, rgba(179, 122, 212, 0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(32, 106, 188, 0.3), transparent 35%),
+        linear-gradient(135deg, #050816, #090f2e 55%, #160728);
+    color: #f4f0ff;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto 18px auto;
+    border: 1px solid rgba(202, 169, 243, 0.45);
+    border-radius: 18px;
+    padding: 24px 90px 22px 90px;
+    background-color: rgba(5, 8, 22, 0.55);
+    box-shadow: 0 0 28px rgba(202, 169, 243, 0.2);
+}
+
+h1 {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-family: 'Titan One', sans-serif;
+    text-align: center;
+    letter-spacing: 6px;
+    margin: 0 0 10px 0;
+    color: #f4eaff;
+    text-shadow: 0 0 18px rgba(202, 169, 243, 0.9);
+}
+
+h2 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    background-color: rgba(31, 46, 97, 0.8);
+    border: 1px solid rgba(81, 203, 255, 0.6);
+    border-radius: 999px;
+    padding: 8px 18px;
+    width: fit-content;
+    margin: 0 auto 14px auto;
+    color: #caa9f3;
+}
+
+h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.45rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0 0 18px 0;
+    padding: 0 0 12px 0;
+    width: 100%;
+    color: #51cbff;
+    border: none;
+    border-bottom: 1px solid rgba(81, 203, 255, 0.35);
+    border-radius: 0;
+    background-color: transparent;
+}
+
+p,
+li {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.45;
+}
+
+header p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #e7dcff;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+a {
+    font-size: 1.05rem;
+    color: #51cbff;
+    border: 1px solid rgba(81, 203, 255, 0.8);
+    border-radius: 999px;
+    padding: 10px 16px;
+    display: inline-block;
+    margin-top: 30px;
+    font-weight: bold;
+    font-family: 'Fredoka', sans-serif;
+    background-color: rgba(31, 46, 97, 0.8);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 16px rgba(81, 203, 255, 0.18);
+}
+
+footer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 9px 0;
+    color: #f4f0ff;
+}
+
+li::before {
+    content: "●  ";
+    color: #51cbff;
+    font-weight: bold;
+}
+
+/* header layout */
+
+.title-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    background-image: url("images/background.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.08;
+    min-height: 100vh;
+}
+
+/* dashboard grid */
+
+.card {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+.status,
+.week,
+.wins,
+.review,
+.resource,
+.study,
+.timeline,
+.focus {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(8, 15, 38, 0.95), rgba(12, 24, 60, 0.82));
+    border: 1px solid rgba(81, 203, 255, 0.55);
+    border-radius: 16px;
+    padding: 22px;
+    min-height: 230px;
+    margin: 0;
+    box-shadow: 0 0 22px rgba(81, 203, 255, 0.14);
+    outline: 1px solid rgba(255, 255, 255, 0.08);
+    outline-offset: -8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.status::after,
+.week::after,
+.wins::after,
+.review::after,
+.resource::after,
+.study::after,
+.timeline::after,
+.focus::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #51cbff;
+    box-shadow: 0 0 14px currentColor;
+}
+
+.status,
+.week {
+    grid-column: span 3;
+    min-height: 280px;
+}
+
+.wins,
+.review,
+.resource,
+.study,
+.timeline,
+.focus {
+    grid-column: span 2;
+}
+
+.status {
+    border-color: rgba(64, 255, 116, 0.7);
+}
+
+.week {
+    border-color: rgba(81, 203, 255, 0.7);
+}
+
+.wins {
+    border-color: rgba(64, 255, 116, 0.7);
+}
+
+.review {
+    border-color: rgba(255, 145, 31, 0.7);
+}
+
+.timeline {
+    border-color: rgba(202, 169, 243, 0.7);
+}
+
+.resource {
+    border-color: rgba(255, 92, 215, 0.7);
+}
+
+.study {
+    border-color: rgba(81, 203, 255, 0.7);
+}
+
+.focus {
+    border-color: rgba(255, 216, 76, 0.75);
+}
+
+.status::after,
+.wins::after {
+    color: #40ff74;
+    background-color: #40ff74;
+}
+
+.week::after,
+.study::after {
+    color: #51cbff;
+    background-color: #51cbff;
+}
+
+.review::after {
+    color: #ff911f;
+    background-color: #ff911f;
+}
+
+.timeline::after {
+    color: #caa9f3;
+    background-color: #caa9f3;
+}
+
+.resource::after {
+    color: #ff5cd7;
+    background-color: #ff5cd7;
+}
+
+.focus::after {
+    color: #ffd84c;
+    background-color: #ffd84c;
+}
+
+/* system rows */
+
+.week p,
+.wins li,
+.review li,
+.resource li,
+.study li,
+.timeline li,
+.focus li {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.status p,
+.week p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin: 10px 0;
+    padding: 12px 14px;
+    background-color: rgba(2, 8, 25, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #f4f0ff;
+}
+
+.status p {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.week p {
+    align-items: flex-start;
+}
+
+/* badges */
+
+.badge {
+    border: 1px solid rgba(202, 169, 243, 0.75);
+    background-color: rgba(202, 169, 243, 0.16);
+    color: #f0d9ff;
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 0 12px rgba(202, 169, 243, 0.15);
+}
+
+/* images */
+ 
+.star,
+.star2 {
+    position: absolute;
+    top: 20px;
+    width: 70px;
+    filter: drop-shadow(0 0 12px rgba(202, 169, 243, 0.85));
+}
+
+.star {
+    left: 28px;
+}
+
+.star2 {
+    right: 28px;
+}
+
+/* effects */
+
+.status:hover::after,
+.week:hover::after,
+.wins:hover::after,
+.review:hover::after,
+.resource:hover::after,
+.study:hover::after,
+.timeline:hover::after,
+.focus:hover::after {
+    animation: status-pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes status-pulse {
+    from {
+        transform: scale(1);
+        opacity: 0.75;
+        box-shadow: 0 0 10px currentColor;
+    }
+
+    to {
+        transform: scale(1.35);
+        opacity: 1;
+        box-shadow: 0 0 22px currentColor;
+    }
+}
+
+.status:hover,
+.week:hover,
+.wins:hover,
+.review:hover,
+.resource:hover,
+.study:hover,
+.timeline:hover,
+.focus:hover {
+    transform: translateY(-5px);
+    border-color: rgba(244, 240, 255, 0.85);
+    box-shadow: 0 0 26px rgba(81, 203, 255, 0.24);
+}
+
+a:hover {
+    color: #050816;
+    background-color: #51cbff;
+    box-shadow: 0 0 22px rgba(81, 203, 255, 0.55);
+}
+
+a:active {
+    transform: translateY(2px);
+}
+
+a:visited {
+    color: #caa9f3;
+}
+
+a:focus {
+    outline: 3px solid #fcebc3;
+    outline-offset: 4px;
+}
+
+/* tablet settings */
+
+@media (max-width: 900px) {
+    .card {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .status,
+    .week,
+    .wins,
+    .review,
+    .resource,
+    .study,
+    .timeline,
+    .focus {
+        grid-column: span 1;
+    }
+}
+
+/* mobile settings */
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 54px 16px 18px 16px;
+    }
+
+    .title-row {
+        gap: 0;
+    }
+
+    .star,
+    .star2 {
+        top: 14px;
+        width: 42px;
+    }
+
+    .star {
+        left: 16px;
+    }
+
+    .star2 {
+        right: 16px;
+    }
+
+    h1 {
+        letter-spacing: 3px;
+    }
+
+    h2 {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .status,
+    .week,
+    .wins,
+    .review,
+    .resource,
+    .study,
+    .timeline,
+    .focus {
+        grid-column: span 1;
+        min-height: auto;
+    }
+
+    .status p,
+    .week p {
+        display: block;
+    }
+
+    .badge {
+        display: inline-block;
+        margin-top: 6px;
+        white-space: normal;
+    }
+}
+
+
+
