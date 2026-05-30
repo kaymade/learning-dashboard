@@ -1,4 +1,4 @@
-# Learning Dashboard
+# Study Command Center v.2
 
 A soft, colorful learning dashboard built with HTML and CSS. This project tracks current study progress, weekly goals, recent wins, review topics, resources, and upcoming project milestones.
 
